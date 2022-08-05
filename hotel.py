@@ -238,6 +238,31 @@ cursor.execute(ROOM11, room_data11)
 cursor.execute(ROOM12, room_data12)
 
 
+cursor.execute('SELECT * from hotel_table;')
+result = cursor.fetchall()
+print(result)
+
+
+# cursor.execute('SELECT * from room_table;')
+
+# result2 = cursor.fetchone()
+# print('fetchone ' , result2)
+
+# result2 = cursor.fetchmany(10)
+# print('fetchmany ' , result2)
+# result3 = cursor.fetchone()
+# print('fetchone ' , result3)
+
+cursor.execute('SELECT * from room_table;')
+result1 = cursor.fetchmany(12)
+print('fetchmany ' , result1)
+
+cursor.execute('SELECT * FROM room_table AS r INNER JOIN hotel_table AS h ON r.hotel_id = h.hotel_id ;')
+result2 = cursor.fetchall()
+print(result2)
+
+
+
 
 
 # commit, so it does the executions on the db and persists in the db
